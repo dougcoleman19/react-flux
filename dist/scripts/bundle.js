@@ -49363,7 +49363,7 @@ module.exports = AuthorList;
 
 var React = require('react');
 var Router = require('react-router');
-var Link = require('react-router').Link;
+var Link = Router.Link;
 var AuthorApi = require('../../api/authorApi');
 var AuthorList = require('./authorList');
 
@@ -49376,7 +49376,7 @@ var AuthorPage = React.createClass({displayName: "AuthorPage",
     }, 
     componentDidMount: function() {
         if (this.isMounted()) {
-            this.setState({authors: AuthorApi.getAllAuthors() });
+            this.setState({authors: AuthorApi.getAllAuthors()});
         }
     },
 
@@ -49385,7 +49385,7 @@ var AuthorPage = React.createClass({displayName: "AuthorPage",
         return (
             React.createElement("div", null, 
                 React.createElement("h1", null, "Authors"), 
-                React.createElement(Link, {to: "addAuthor", className: "btn btn-default"}, "Add Author"), 
+                React.createElement(Link, {to: "addAuthors", className: "btn btn-default"}, "Add Author"), 
                 React.createElement(AuthorList, {authors: this.state.authors})
             )
 
